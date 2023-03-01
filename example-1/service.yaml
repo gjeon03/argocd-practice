@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: argocd-helloworld
   annotations:
-    notifications.v1/subscribe.on-sync-succeeded.slack: my_channel
+    notifications.v1/subscribe.on-sync-succeeded.slack: argocd
 spec:
   selector:
     app: argocd-helloworld
