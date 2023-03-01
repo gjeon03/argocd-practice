@@ -4,13 +4,15 @@ metadata:
   name: argocd-helloworld
   labels:
     name: argocd-helloworld
+  annotations:
+    notifications.v1/subscribe.on-deployed.slack: argocd #Slack Channel name
 spec:
   containers:
-  - name: argocd-helloworld
-    image: nginx
-    resources:
-      limits:
-        memory: "64Mi"
-        cpu: "0.2"
-    ports:
-      - containerPort: 80
+    - name: argocd-helloworld
+      image: nginx
+      resources:
+        limits:
+          memory: "64Mi"
+          cpu: "0.2"
+      ports:
+        - containerPort: 80
