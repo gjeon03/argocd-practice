@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: ms-echoserver-application
+  name: argocd-helloworld
   namespace: argocd
   annotations:
     notifications.argoproj.io/subscribe.on-deployed.slack: argocd #Slack Channel name
