@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-helloworld
+  annotations:
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: argocd
+    notifications.argoproj.io/subscribe.on-sync-succeeded.slack: argocd
+    notifications.argoproj.io/subscribe.on-sync-failed.slack: argocd
+    notifications.argoproj.io/subscribe.on-sync-running.slack: argocd
+    notifications.argoproj.io/subscribe.on-sync-status-unknown.slack: dev-ops
+    notifications.argoproj.io/subscribe.on-deployed.slack: argocd
+    notifications.argoproj.io/subscribe.on-health-degraded.slack: argocd
+spec:
+  destination:
+    namespace: default
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    # path: kustomize-guestbook
+    repoURL: git@github.com:gjeon03/argocd-practice.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
