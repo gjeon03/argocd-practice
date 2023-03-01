@@ -5,3 +5,9 @@ metadata:
   namespace: argocd
   annotations:
     notifications.v1/subscribe.on-deployed.slack: argocd #Slack Channel name
+spec:
+  selector:
+    app: argocd-helloworld
+  ports:
+    - port: 80
+      targetPort: 80
